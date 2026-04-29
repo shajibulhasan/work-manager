@@ -13,7 +13,7 @@
         <div class="card bg-info text-white">
             <div class="card-body">
                 <h5>Total Expenses</h5>
-                <h3>${{ number_format($totalExpenses, 2) }}</h3>
+                <h3>Tk {{ number_format($totalExpenses, 2) }}</h3>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="card bg-warning text-white">
             <div class="card-body">
                 <h5>Minimum Deposit Required</h5>
-                <h3>${{ number_format($minimumDeposit, 2) }}</h3>
+                <h3>Tk {{ number_format($minimumDeposit, 2) }}</h3>
                 <small>Total Expenses ÷ 3</small>
             </div>
         </div>
@@ -61,24 +61,24 @@
                     <tr>
                         <td><strong>{{ $report['name'] }}</strong></td>
                         <td class="text-success">
-                            ${{ number_format($report['total_deposits'], 2) }}
+                            Tk {{ number_format($report['total_deposits'], 2) }}
                             <br><small>({{ $report['deposit_count'] }} deposits)</small>
                         </td>
                         <td class="text-primary">
-                            ${{ number_format($report['total_received'], 2) }}
+                            Tk {{ number_format($report['total_received'], 2) }}
                         </td>
                         <td class="text-danger">
-                            ${{ number_format($report['total_spent'], 2) }}
+                            Tk {{ number_format($report['total_spent'], 2) }}
                             <br><small>({{ $report['expense_count'] }} expenses)</small>
                         </td>
-                        <td>${{ number_format($report['minimum_required'], 2) }}</td>
+                        <td>Tk {{ number_format($report['minimum_required'], 2) }}</td>
                         <td>
                             @if($report['difference'] > 0)
-                                <span class="text-success">+${{ number_format($report['difference'], 2) }}</span>
+                                <span class="text-success">+Tk {{ number_format($report['difference'], 2) }}</span>
                             @elseif($report['difference'] < 0)
-                                <span class="text-danger">-${{ number_format(abs($report['difference']), 2) }}</span>
+                                <span class="text-danger">-Tk {{ number_format(abs($report['difference']), 2) }}</span>
                             @else
-                                <span class="text-muted">$0.00</span>
+                                <span class="text-muted">Tk 0.00</span>
                             @endif
                         </td>
                         <td>
@@ -92,9 +92,9 @@
                         </td>
                         <td>
                             @if($report['cash_in_hand'] >= 0)
-                                <span class="text-success">${{ number_format($report['cash_in_hand'], 2) }}</span>
+                                <span class="text-success">Tk {{ number_format($report['cash_in_hand'], 2) }}</span>
                             @else
-                                <span class="text-danger">-${{ number_format(abs($report['cash_in_hand']), 2) }}</span>
+                                <span class="text-danger">-Tk {{ number_format(abs($report['cash_in_hand']), 2) }}</span>
                             @endif
                         </td>
                         <td>

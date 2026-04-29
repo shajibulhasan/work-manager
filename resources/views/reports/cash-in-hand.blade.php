@@ -42,26 +42,26 @@
                         <td><strong>{{ $item['name'] }}</strong></td>
                         <td class="text-primary">
                             @if($item['total_received'] > 0)
-                                ${{ number_format($item['total_received'], 2) }}
+                                Tk {{ number_format($item['total_received'], 2) }}
                             @else
-                                <span class="text-muted">$0.00</span>
+                                <span class="text-muted">Tk 0.00</span>
                             @endif
                         </td>
                         <td class="text-danger">
                             @if($item['total_spent'] > 0)
-                                ${{ number_format($item['total_spent'], 2) }}
+                                Tk {{ number_format($item['total_spent'], 2) }}
                             @else
-                                <span class="text-muted">$0.00</span>
+                                <span class="text-muted">Tk 0.00</span>
                             @endif
                         </td>
                         <td>
                             <strong>
                                 @if($item['cash_in_hand'] > 0)
-                                    <span class="text-success">+${{ number_format($item['cash_in_hand'], 2) }}</span>
+                                    <span class="text-success">+Tk {{ number_format($item['cash_in_hand'], 2) }}</span>
                                 @elseif($item['cash_in_hand'] < 0)
-                                    <span class="text-danger">-${{ number_format(abs($item['cash_in_hand']), 2) }}</span>
+                                    <span class="text-danger">-Tk {{ number_format(abs($item['cash_in_hand']), 2) }}</span>
                                 @else
-                                    <span class="text-muted">$0.00</span>
+                                    <span class="text-muted">Tk 0.00</span>
                                 @endif
                             </strong>
                         </td>
@@ -78,12 +78,12 @@
                             @if($item['cash_in_hand'] > 0)
                                 <span class="text-success">
                                     <i class="fas fa-arrow-up"></i> 
-                                    Has ${{ number_format($item['cash_in_hand'], 2) }} extra
+                                    Has Tk {{ number_format($item['cash_in_hand'], 2) }} extra
                                 </span>
                             @elseif($item['cash_in_hand'] < 0)
                                 <span class="text-danger">
                                     <i class="fas fa-arrow-down"></i> 
-                                    Overspent by ${{ number_format(abs($item['cash_in_hand']), 2) }}
+                                    Overspent by Tk {{ number_format(abs($item['cash_in_hand']), 2) }}
                                 </span>
                             @else
                                 <span class="text-muted">
@@ -152,19 +152,19 @@
             <div class="col-md-4">
                 <div class="alert alert-success">
                     <strong><i class="fas fa-check-circle"></i> Has Money:</strong> Received more than spent
-                    <br><small>Cash in Hand > $0 (Positive balance)</small>
+                    <br><small>Cash in Hand > Tk 0 (Positive balance)</small>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="alert alert-danger">
                     <strong><i class="fas fa-times-circle"></i> Overspent:</strong> Spent more than received
-                    <br><small>Cash in Hand < $0 (Negative balance)</small>
+                    <br><small>Cash in Hand < Tk 0 (Negative balance)</small>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="alert alert-secondary">
                     <strong><i class="fas fa-equals"></i> Balanced:</strong> Received equals spent
-                    <br><small>Cash in Hand = $0 (Zero balance)</small>
+                    <br><small>Cash in Hand = Tk 0 (Zero balance)</small>
                 </div>
             </div>
         </div>
