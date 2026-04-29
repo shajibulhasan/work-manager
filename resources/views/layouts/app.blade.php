@@ -58,6 +58,51 @@
                             <i class="fas fa-tags"></i> Categories
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ request()->routeIs('reports.*') ? 'active' : '' }}" 
+                        href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-chart-bar"></i> Reports
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('reports.person-wise') }}">
+                                    <i class="fas fa-users"></i> Person Wise Report
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('reports.deposits') }}">
+                                    <i class="fas fa-arrow-down"></i> Deposit Report
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('reports.expenses') }}">
+                                    <i class="fas fa-arrow-up"></i> Expense Report
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('reports.due') }}">
+                                    <i class="fas fa-exclamation-triangle"></i> Due Report
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('reports.cash-in-hand') }}">
+                                    <i class="fas fa-wallet"></i> Cash in Hand
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('reports.received-by') }}">
+                                    <i class="fas fa-hand-holding-usd"></i> Received By
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('reports.monthly') }}">
+                                    <i class="fas fa-calendar-alt"></i> Monthly Report
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     @endauth
             
                 </ul>

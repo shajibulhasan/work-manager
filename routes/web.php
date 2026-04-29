@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -47,4 +48,16 @@ Route::middleware(['auth'])->group(function () {
     // Task quick actions
     Route::patch('/tasks/{task}/status', [TaskController::class, 'updateStatus'])
          ->name('tasks.update-status');
+});
+
+// Reports Routes
+Route::prefix('reports')->name('reports.')->group(function () {
+    Route::get('/', [ReportController::class, 'index'])->name('index');
+    Route::get('/person-wise', [ReportController::class, 'personWiseReport'])->name('person-wise');
+    Route::get('/deposits', [ReportController::class, 'depositReport'])->name('deposits');
+    Route::get('/expenses', [ReportController::class, 'expenseReport'])->name('expenses');
+    Route::get('/due', [ReportController::class, 'dueReport'])->name('due');
+    Route::get('/cash-in-hand', [ReportController::class, 'cashInHandReport'])->name('cash-in-hand');
+    Route::get('/received-by', [ReportController::class, 'receivedByReport'])->name('received-by');
+    Route::get('/monthly', [ReportController::class, 'monthlyReport'])->name('monthly');
 });
